@@ -1,7 +1,7 @@
 import * as pdfjsLib from 'pdfjs-dist';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+// Use UNPKG CDN to guarantee the worker loads reliably in Vite production builds
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
 
 const SCHEMA = [
     'FECHA OPER.', 'FECHA VALOR', 'DESCRIPCION',
